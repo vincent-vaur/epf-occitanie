@@ -1,0 +1,33 @@
+{
+  "name": "epf-occitanie",
+  "version": "1.0.0",
+  "description": "Theme Worpdress pour l'EPF Occitanie",
+  "main": "index.html",
+  "scripts": {
+    "start": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vincent-vaur/epf-occitanie.git"
+  },
+  "author": "Vincent Vaur <vaur.vincent@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vincent-vaur/epf-occitanie/issues"
+  },
+  "homepage": "https://github.com/vincent-vaur/epf-occitanie#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.6.1",
+    "grunt": "^1.0.4",
+    "grunt-bake": "^1.9.0",
+    "grunt-contrib-connect": "^2.1.0",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "^3.1.0",
+    "load-grunt-tasks": "^5.1.0",
+    "node-sass": "^4.13.0"
+  }
+}
