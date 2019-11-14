@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         options: {
           port: SERVER_PORT,
           hostname: "localhost",
-          base: "dist",
+          base: "docs",
           livereload: LIVE_RELOAD_PORT,
           open: true,
         },
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          "dist/styles.css": "src/scss/styles.scss",
+          "docs/styles.css": "src/scss/styles.scss",
         },
       },
     },
@@ -32,7 +32,7 @@ module.exports = function(grunt) {
     bake: {
       your_target: {
         files: {
-          "dist/index.html": "src/index.html",
+          "docs/index.html": "src/index.html",
         },
       },
     },
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
       },
 
       livereload: {
-        files: ["dist/**/*.*"],
+        files: ["docs/**/*.*"],
         options: { livereload: LIVE_RELOAD_PORT },
       },
     },
