@@ -37,6 +37,12 @@ module.exports = function(grunt) {
       },
     },
 
+    copy: {
+      assets: {
+        files: [{ expand: true, cwd: "src", src: "assets/**", dest: "docs/" }],
+      },
+    },
+
     watch: {
       sass: {
         files: ["src/scss/**.*"],
@@ -46,6 +52,11 @@ module.exports = function(grunt) {
       bake: {
         files: ["src/**.html"],
         tasks: ["bake"],
+      },
+
+      assets: {
+        files: ["src/assets/**/*.*"],
+        tasks: ["copy"],
       },
 
       livereload: {
@@ -60,6 +71,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-bake");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-connect");
+  grunt.loadNpmTasks("grunt-contrib-copy");
 
-  grunt.registerTask("default", ["sass", "bake", "connect", "watch"]);
+  grunt.registerTask("default", ["sass", "bake", "copy", "connect", "watch"]);
 };

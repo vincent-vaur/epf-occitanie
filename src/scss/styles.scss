@@ -1,7 +1,9 @@
-$theme-colors: (
-  "primary": #e0851c,
-  "secondary": #2abdcd,
-);
+$primary: #e0851c;
+$secondary: #2abdcd;
+$box-shadow: 0.4rem 0.4rem 0.5rem rgba(#000, .3) !default;
 
 // Bootstrap lib
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Theme CSS
+@import "./header.scss";
