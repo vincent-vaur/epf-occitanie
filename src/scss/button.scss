@@ -1,0 +1,19 @@
+// Boutons / liens
+.btn {
+  border: none;
+  border-radius: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background: $primary;
+}
+
+.btn-secondary {
+  background: $secondary;
+
+  &:hover {
+    background: $primary;
+  }
+}

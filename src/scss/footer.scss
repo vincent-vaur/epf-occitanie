@@ -1,0 +1,16 @@
+footer {
+  nav {
+    a {
+      &:after {
+        content: "|";
+        margin: 0 $spacer;
+      }
+
+      &:last-child {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,9 +1,22 @@
-$primary: #e0851c;
-$secondary: #2abdcd;
+// Police principale
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap');
+
+// Personnalisation de Bootstrap
+$enable-gradients: true;
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$primary: #e96607;
+$secondary: #1bbbc5;
 $box-shadow: 0.4rem 0.4rem 0.5rem rgba(#000, .3) !default;
 
-// Bootstrap lib
+// $container-max-widths: (
+//   sm: 100%,
+//   md: 100%,
+//   lg: 100%,
+//   xl: 1440px
+// );
+
+// Bootstrap
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-// Theme CSS
-@import "./header.scss";
+// Theme
+@import "./theme.scss";

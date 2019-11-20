@@ -17,6 +17,14 @@ module.exports = function(grunt) {
       },
     },
 
+    uglify: {
+      js: {
+        files: {
+          "docs/theme.min.js": ["src/js/*.js"],
+        },
+      },
+    },
+
     sass: {
       options: {
         implementation: sass,
@@ -30,9 +38,18 @@ module.exports = function(grunt) {
     },
 
     bake: {
-      your_target: {
+      home: {
+        options: {
+          content: require('./src/data/home.js'),
+        },
         files: {
-          "docs/index.html": "src/index.html",
+          "docs/index.html": "src/html/home.html",
+        },
+      },
+
+      test: {
+        files: {
+          "docs/test.html": "src/html/test.html",
         },
       },
     },
@@ -44,13 +61,23 @@ module.exports = function(grunt) {
     },
 
     watch: {
+      data: {
+        files: ["src/data/**.*"],
+        tasks: ["bake"],
+      },
+
+      js: {
+        files: ["src/js/**.*"],
+        tasks: ["uglify"],
+      },
+
       sass: {
         files: ["src/scss/**.*"],
         tasks: ["sass"],
       },
 
       bake: {
-        files: ["src/**.html"],
+        files: ["src/html/**/*.html"],
         tasks: ["bake"],
       },
 
@@ -67,11 +94,12 @@ module.exports = function(grunt) {
   });
 
   // Load the plugin that provides the "uglify" task.
+  grunt.loadNpmTasks("grunt-contrib-uglify-es");
   grunt.loadNpmTasks("grunt-sass");
   grunt.loadNpmTasks("grunt-bake");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-connect");
   grunt.loadNpmTasks("grunt-contrib-copy");
 
-  grunt.registerTask("default", ["sass", "bake", "copy", "connect", "watch"]);
+  grunt.registerTask("default", ["uglify", "sass", "bake", "copy", "connect", "watch"]);
 };
