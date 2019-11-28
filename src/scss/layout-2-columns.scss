@@ -1,0 +1,72 @@
+.page-image-container {
+  position: relative;
+  text-align: center;
+  margin-bottom: $spacer;
+
+  background: linear-gradient(180deg, $gradient-primary, $gradient-secondary) no-repeat border-box,
+    linear-gradient(180deg, $gradient-primary, $gradient-secondary) no-repeat border-box;
+  background-size: 50% 70%, 50% 70%;
+  background-position: top 45% left 0, bottom 0 right 0;
+
+  img {
+    width: 80%;
+  }
+}
+
+.page-content {
+  margin-top: $spacer * -8;
+
+  .left {
+    margin: $spacer * 5.5 0 $spacer * 2 0;
+
+    .share-buttons {
+      display: flex;
+      align-items: center;
+      padding: $spacer * 0.5 $spacer;
+      color: white;
+      text-transform: uppercase;
+      background: $primary;
+
+      span {
+        flex-grow: 1;
+        font-weight: bold;
+        text-align: right;
+      }
+
+      a {
+        margin-left: $spacer;
+        color: white;
+        transition: color 0.5s;
+
+        &:hover {
+          color: $secondary;
+        }
+
+        &:last-child {
+          margin-right: $spacer * 2;
+        }
+      }
+    }
+
+    .related-menu {
+      margin-top: $spacer * 4;
+      margin-left: $spacer * 4;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    margin-top: 0;
+
+    .left {
+      margin: 0;
+
+      .related-menu {
+        margin-top: 0;
+      }
+    }
+
+    .title-1-block {
+      margin-top: $spacer;
+    }
+  }
+}

@@ -6,14 +6,8 @@ $enable-gradients: true;
 $font-family-sans-serif: 'Montserrat', sans-serif;
 $primary: #e96607;
 $secondary: #1bbbc5;
+$ternary: #51479b;
 $box-shadow: 0.4rem 0.4rem 0.5rem rgba(#000, .3) !default;
-
-// $container-max-widths: (
-//   sm: 100%,
-//   md: 100%,
-//   lg: 100%,
-//   xl: 1440px
-// );
 
 // Bootstrap
 @import "../../node_modules/bootstrap/scss/bootstrap";

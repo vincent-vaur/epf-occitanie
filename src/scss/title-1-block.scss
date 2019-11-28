@@ -1,0 +1,25 @@
+.title-1-block {
+  background: white;
+
+  nav {
+    background: url(assets/bg-breadcrumb.png) center center no-repeat;
+    background-size: cover;
+
+    li:not(:last-child) {
+      a::after {
+        content: ">";
+        margin-left: $spacer * .5;
+      }
+    }
+
+    a {
+      color: white;
+      font-size: $spacer * .8;
+    }
+  }
+
+  h1 {
+    font-size: $spacer * 2;
+    text-transform: uppercase;
+  }
+}

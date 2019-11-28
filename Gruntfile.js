@@ -47,9 +47,9 @@ module.exports = function(grunt) {
         },
       },
 
-      test: {
+      standard: {
         files: {
-          "docs/test.html": "src/html/test.html",
+          "docs/standard.html": "src/html/standard.html",
         },
       },
     },
