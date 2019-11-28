@@ -1,12 +1,15 @@
 section {
   margin: $spacer * 4 0;
+
+  h2, h3 {
+    margin: 0;
+  }
 }
 
 .home-last-news {
   h2 {
     left: 0;
     top: 0;
-    margin: 0;
     z-index: 99;
   }
 
@@ -52,7 +55,6 @@ section {
           }
   
           h3 {
-            margin-top: 0;
             font-weight: 300;
             font-size: $spacer * 2.5;
           }
