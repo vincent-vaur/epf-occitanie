@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>EPC Occitanie</title>
+
+  <meta name="description" content="">
+  <meta name="author" content="Vincent Vaur<vaur.vincent@gmail.com>">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" crossorigin="" />
+
+  <style>
+    #map {
+      width: 500px;
+      height: 500px;
+    }
+
+    .leaflet-container {
+      background: transparent;
+    }
+
+    .leaflet-interactive {
+      stroke: #1bbbc5;
+      stroke-width: 1;
+      fill: white;
+      fill-opacity: 1;
+    }
+
+    .leaflet-marker-icon {
+      /* display: none; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid p-0">
+    <div id="map"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/36c54b66e9.js" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" crossorigin=""></script>
+
+  <script src="./geoJSON.js" crossorigin=""></script>
+  
+  <script>
+    const map = L.map("map", {
+      zoom: 7,
+      attributionControl: false,
+      zoomControl: false,
+      boxZoom: false,
+      dragging: false,
+      keyboard: false,
+      scrollWheelZoom: false,
+    });
+
+    const dataLayer = L.geoJSON(geoJSON, {
+      onEachFeature: function (feature, layer) {
+        if (feature.properties.type === "Préfecture") {
+          console.log(layer)
+          L.marker(layer.getBounds().getCenter(), {
+            icon: L.divIcon({
+              className: 'label',
+              html: feature.properties.nom_commun,
+              iconSize: [100, 40]
+            })
+          }).addTo(map);
+        }
+      }
+    });
+
+    dataLayer.addTo(map);
+
+    L.tileLayer("", {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      minZoom: 7,
+      maxZoom: 7,
+      bounds: dataLayer.getBounds()
+    }).addTo(map);
+
+    map.fitBounds(dataLayer.getBounds());
+  </script>
+</body>
+
+</html>

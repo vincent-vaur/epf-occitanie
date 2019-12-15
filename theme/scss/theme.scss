@@ -1,0 +1,35 @@
+// Variables
+$gradient: #1bbbc5 linear-gradient(90deg, #52489c, #1bbbc5) !important;
+$gradient-primary: $secondary;
+$gradient-secondary: #52489c;
+
+body {
+  > .container {
+    overflow: hidden;
+  }
+}
+
+@import "./animation.scss";
+@import "./gradient.scss";
+@import "./link.scss";
+@import "./button.scss";
+@import "./table.scss";
+@import "./navigation.scss";
+@import "./pagination.scss";
+
+@import "./global.scss";
+@import "./header.scss";
+@import "./footer.scss";
+@import "./breadcrumb.scss";
+@import "./accordion.scss";
+@import "./rapid-access.scss";
+@import "./related-menu.scss";
+@import "./layout-2-columns.scss";
+@import "./title-1-block.scss";
+@import "./excergue.scss";
+
+
+@import "./home.scss";
+@import "./news.scss";
+@import "./job_adds.scss";
+@import "./publications.scss";

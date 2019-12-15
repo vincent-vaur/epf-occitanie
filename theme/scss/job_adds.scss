@@ -1,0 +1,30 @@
+.job_add {
+  background: url("assets/chevron-blue.png") left center no-repeat;
+  background-size: contain;
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+
+    a {
+      margin-top: $spacer;
+      align-self: auto !important;
+    }
+  }
+
+  h2 {
+    text-transform: none;
+
+    @include media-breakpoint-down(sm) {
+      font-size: $spacer * 1.5;
+    }
+  }
+
+  a {
+    text-transform: none;
+
+    &:hover {
+      color: $secondary;
+      background: white;
+    }
+  }
+}

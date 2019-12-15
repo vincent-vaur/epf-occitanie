@@ -1,0 +1,20 @@
+table {
+  thead {
+    background: linear-gradient(170deg, $ternary, $secondary);
+
+    th {
+      color: white;
+      padding: $spacer;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: solid 1px $primary;
+
+      td {
+        padding: $spacer;
+      }
+    }
+  }
+}

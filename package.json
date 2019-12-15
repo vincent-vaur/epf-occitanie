@@ -4,7 +4,7 @@
   "description": "Theme Worpdress pour l'EPF Occitanie",
   "main": "index.html",
   "scripts": {
-    "start": "grunt"
+    "build": "node-sass --output-style compressed --source-map true --source-map-contents true --precision 6 theme/scss/style.scss theme/style.css"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,18 @@
+.wp-block-pullquote,
+.wp-block-pullquote.is-style-solid-color {
+  margin: 0;
+  padding: 0;
+  background-color: white !important;
+  border-left: solid $spacer * .5 $primary !important;
+
+  blockquote {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: $spacer * 3 !important;
+    background: #eee !important;
+
+    p {
+      font-size: $spacer * 1.4;
+    }
+  }
+}

@@ -1,0 +1,136 @@
+h2 {
+  margin: $spacer * 4 0;
+  color: $secondary;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin: $spacer * 2 0;
+  color: $ternary;
+}
+
+.page-content {
+  img {
+    box-shadow: $box-shadow;
+  }
+}
+
+article {
+  ul {
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      &::before {
+        color: $primary;
+        margin-right: $spacer;
+        font-family: "epf-occitanie-icons";
+        content: "\e808";
+      }
+
+      ul {
+        padding-left: $spacer * 2;
+      }
+    }
+  }
+}
+
+figcaption {
+  font-size: $spacer * 0.8;
+  font-style: italic;
+  text-align: center;
+}
+
+.wp-block-file__button
+/*.wp-block-button__link*/ {
+  font-size: $spacer * 0.8 !important;
+  padding: $spacer * 0.5 $spacer;
+}
+
+@mixin block-button($direction: left) {
+  content: "";
+  display: block;
+  background: url(assets/navigation-button.png) no-repeat;
+  height: 28px;
+  width: 39px;
+  background-size: contain;
+
+  @if $direction == "right" {
+    transform: scale(-1, 1);
+  }
+}
+
+.wp-block-file {
+  display: flex;
+  margin: $spacer 0;
+  align-items: center;
+
+  a:first-child {
+    flex-grow: 1;
+  }
+}
+
+.wp-block-button {
+  display: flex;
+  align-items: center;
+  transition: all .3s;
+
+  &.aligncenter {
+    justify-content: center;
+  }
+
+  &:before {
+    @include block-button();
+  }
+
+  &:after {
+    @include block-button(right);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    transition: all .3s;
+  }
+
+  .wp-block-button__link {
+    color: black;
+    font-size: $spacer * 0.8 !important;
+    padding: $spacer * 0.5 $spacer;
+    background: white !important;
+  }
+}
+
+/**
+ * Classes généré par Gutenberg
+ */
+.has-c-6-primary-color {
+  color: $primary;
+}
+
+.has-c-6-primary-background-color {
+  background: $primary;
+}
+
+.has-c-6-secondary-color {
+  color: $secondary;
+}
+
+.has-c-6-secondary-background-color {
+  background: $secondary;
+}
+
+.has-c-6-ternary-color {
+  color: $ternary;
+}
+
+.has-c-6-ternary-background-color {
+  background: $ternary;
+}
+
+.has-c-6-standard-color {
+  color: $body-color;
+}
+
+.has-c-6-standard-background-color {
+  background: $body-color;
+}

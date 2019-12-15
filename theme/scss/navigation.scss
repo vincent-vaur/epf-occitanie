@@ -1,0 +1,48 @@
+@mixin navigation-button($xFlip: 1, $yFlip: 1) {
+  display: block;
+  width: 53px;
+  height: 38px;
+  border-radius: 0;
+  background: url("assets/navigation-button.png") no-repeat;
+  -moz-transform: scale($xFlip, $yFlip);
+  -o-transform: scale($xFlip, $yFlip);
+  -webkit-transform: scale($xFlip, $yFlip);
+  transform: scale($xFlip, $yFlip);
+}
+
+.navigation {
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    li {
+      flex-shrink: 0;
+      margin: 0 $spacer * .3;
+      height: $spacer * .4;
+      width: $spacer * .4;
+      background: $secondary;
+      border-radius: 50%;
+
+      &.active {
+        background: $primary;
+      }
+
+      &:first-child {
+        @include navigation-button;
+        margin-right: $spacer;
+      }
+
+      &:last-child {
+        @include navigation-button(-1, 1);
+        margin-left: $spacer;
+      }
+
+      a {
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}

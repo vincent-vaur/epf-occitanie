@@ -1,0 +1,40 @@
+.wp-block-pb-accordion-item {
+  margin: $spacer * 2 0;
+  box-shadow: $box-shadow;
+
+  .c-accordion__title {
+    margin: 0;
+    padding: $spacer;
+    color: $ternary;
+
+    &:after {
+      $icon-size: $spacer * 2;
+      width: $icon-size;
+      height: $icon-size;
+      line-height: $icon-size * 1.05;
+      margin-right: $spacer;
+      
+      color: white;
+      font-size: $spacer * 1.2;
+      text-align: center;
+      font-family: "epf-occitanie-icons";
+      content: "\e800";
+  
+      border-radius: 50%;
+      background: $secondary;
+    }
+  }
+
+  .c-accordion__content {
+    padding: $spacer;
+    margin: 0;
+  }
+
+  &.is-open {
+    .c-accordion__title {
+      &:after {
+        content: "\e809";
+      }
+    }
+  }
+}

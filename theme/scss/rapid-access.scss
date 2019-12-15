@@ -1,0 +1,30 @@
+.rapid-access {
+  position: fixed;
+  top: $spacer * 20;
+  right: 0;
+  padding: 0 $spacer * .2;
+  font-size: $spacer * .8;
+  background: white;
+  box-shadow: $box-shadow-inverse;
+  z-index: 99;
+
+  a {
+    color: $body-color;
+    transition: all .5s;
+
+    img {
+      margin: 0 auto $spacer * .5 auto;
+      transition: all .5s;
+    }
+
+    &:hover {
+      color: $primary;
+      transition: all .5s;
+
+      img {
+        transform: scale(1.2);
+        transition: all .5s;
+      }
+    }
+  }
+}

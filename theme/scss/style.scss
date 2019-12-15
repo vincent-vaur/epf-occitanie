@@ -1,0 +1,21 @@
+/*!
+ *Theme Name: Com6 EPF
+ */
+
+// Police principale
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap');
+
+// Personnalisation de Bootstrap
+$enable-gradients: true;
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$primary: #e96607;
+$secondary: #1bbbc5;
+$ternary: #51479b;
+$box-shadow: 0.4rem 0.4rem 0.5rem rgba(#000, .3) !default;
+$box-shadow-inverse: -0.4rem 0.4rem 0.5rem rgba(#000, .3) !default;
+
+// Bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Theme
+@import "./theme.scss";
