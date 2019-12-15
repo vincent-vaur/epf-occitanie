@@ -4,7 +4,8 @@
   "description": "Theme Worpdress pour l'EPF Occitanie",
   "main": "index.html",
   "scripts": {
-    "build": "node-sass --output-style compressed --source-map true --source-map-contents true --precision 6 theme/scss/style.scss theme/style.css"
+    "start": "docker-compose -f docker/docker-compose.yml up -d",
+    "build": "node-sass --output-style compressed --source-map true --source-map-contents true --precision 6 wp-content/themes/com6-theme/scss/style.scss wp-content/themes/com6-theme/style.css"
   },
   "repository": {
     "type": "git",
