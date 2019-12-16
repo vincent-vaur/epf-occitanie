@@ -28,3 +28,81 @@
     }
   }
 }
+
+.single-offre-emploi {
+  a.caldera-forms-modal {
+    @include button-variant($primary, $primary);
+    margin-right: $spacer * 3;
+    padding: $spacer * 0.375 $spacer * 2;
+    align-self: flex-end;
+    font-weight: bold;
+    box-shadow: none;
+  }
+
+  .remodal,
+  .remodal-wrapper {
+    @include media-breakpoint-down(sm) {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .caldera-front-modal-container {
+    padding: 0;
+    max-width: 100%;
+
+    @include media-breakpoint-up(sm) {
+      max-width: 80%;
+      padding: $spacer * 3;
+    }
+
+    @include media-breakpoint-up(xl) {
+      max-width: 50%;
+      padding: $spacer * 5;
+    }
+
+    .caldera-modal-body {
+      padding: $spacer * 4;
+      color: white;
+      background: #333;
+
+      @include media-breakpoint-down(sm) {
+        padding: $spacer * 2;
+      }
+
+      h2 {
+        margin: 0 0 $spacer * 2 0;
+        color: white;
+      }
+
+      .form-group {
+        margin: $spacer * 2 0;
+      }
+
+      .field_required {
+        color: $primary;
+      }
+
+      label {
+        font-weight: inherit;
+      }
+
+      input:not([type="file"]),
+      textarea {
+        padding: $spacer * .5 $spacer;
+        border: solid 1px $primary;
+      }
+
+      input[type="file"],
+      .help-block {
+        font-size: $spacer * .8;
+      }
+
+      .btn {
+        @include button-variant($primary, $primary);
+        padding: $spacer * 0.375 $spacer * 2;
+        text-transform: none;
+      }
+    }
+  }
+}

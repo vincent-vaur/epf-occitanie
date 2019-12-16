@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'epf-occitanie-icons';
-  src: url('../font/epf-occitanie-icons.eot?13203570');
-  src: url('../font/epf-occitanie-icons.eot?13203570#iefix') format('embedded-opentype'),
-       url('../font/epf-occitanie-icons.woff2?13203570') format('woff2'),
-       url('../font/epf-occitanie-icons.woff?13203570') format('woff'),
-       url('../font/epf-occitanie-icons.ttf?13203570') format('truetype'),
-       url('../font/epf-occitanie-icons.svg?13203570#epf-occitanie-icons') format('svg');
+  src: url('../font/epf-occitanie-icons.eot?67536693');
+  src: url('../font/epf-occitanie-icons.eot?67536693#iefix') format('embedded-opentype'),
+       url('../font/epf-occitanie-icons.woff2?67536693') format('woff2'),
+       url('../font/epf-occitanie-icons.woff?67536693') format('woff'),
+       url('../font/epf-occitanie-icons.ttf?67536693') format('truetype'),
+       url('../font/epf-occitanie-icons.svg?67536693#epf-occitanie-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'epf-occitanie-icons';
-    src: url('../font/epf-occitanie-icons.svg?13203570#epf-occitanie-icons') format('svg');
+    src: url('../font/epf-occitanie-icons.svg?67536693#epf-occitanie-icons') format('svg');
   }
 }
 */
@@ -70,6 +70,7 @@
 .icon-download:before { content: '\e80c'; } /* '' */
 .icon-twitter:before { content: '\f099'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
+.icon-blank:before { content: '\f0c8'; } /* '' */
 .icon-linkedin:before { content: '\f0e1'; } /* '' */
 .icon-circle:before { content: '\f111'; } /* '' */
 .icon-youtube-play:before { content: '\f16a'; } /* '' */

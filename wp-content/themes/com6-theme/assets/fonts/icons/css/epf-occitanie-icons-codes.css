@@ -14,6 +14,7 @@
 .icon-download:before { content: '\e80c'; } /* '' */
 .icon-twitter:before { content: '\f099'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
+.icon-blank:before { content: '\f0c8'; } /* '' */
 .icon-linkedin:before { content: '\f0e1'; } /* '' */
 .icon-circle:before { content: '\f111'; } /* '' */
 .icon-youtube-play:before { content: '\f16a'; } /* '' */

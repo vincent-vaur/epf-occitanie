@@ -22,10 +22,12 @@ article {
 
     li {
       &::before {
-        color: $primary;
+        display: inline-block;
+        width: $spacer * .7;
+        height: $spacer * .7;
         margin-right: $spacer;
-        font-family: "epf-occitanie-icons";
-        content: "\e808";
+        background: $primary;
+        content: "";
       }
 
       ul {
@@ -50,7 +52,7 @@ figcaption {
 @mixin block-button($direction: left) {
   content: "";
   display: block;
-  background: url(assets/navigation-button.png) no-repeat;
+  background: url(assets/bordered-button.png) no-repeat;
   height: 28px;
   width: 39px;
   background-size: contain;
@@ -104,33 +106,33 @@ figcaption {
  * Classes généré par Gutenberg
  */
 .has-c-6-primary-color {
-  color: $primary;
+  color: $primary !important;
 }
 
 .has-c-6-primary-background-color {
-  background: $primary;
+  background: $primary !important;
 }
 
 .has-c-6-secondary-color {
-  color: $secondary;
+  color: $secondary !important;
 }
 
 .has-c-6-secondary-background-color {
-  background: $secondary;
+  background: $secondary !important;
 }
 
 .has-c-6-ternary-color {
-  color: $ternary;
+  color: $ternary !important;
 }
 
 .has-c-6-ternary-background-color {
-  background: $ternary;
+  background: $ternary !important;
 }
 
 .has-c-6-standard-color {
-  color: $body-color;
+  color: $body-color !important;
 }
 
 .has-c-6-standard-background-color {
-  background: $body-color;
+  background: $body-color !important;
 }

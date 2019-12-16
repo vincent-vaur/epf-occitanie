@@ -1,0 +1,101 @@
+@charset 'UTF-8';
+/* Slider */
+.slick-loading .slick-list
+{
+    background: #fff url('ajax-loader.gif') center center no-repeat;
+}
+
+/* Arrows */
+.slick-prev,
+.slick-next
+{
+    cursor: pointer;
+	padding: 1em 1.25em;
+	border-radius: 4px;
+	line-height: 1;
+	font-weight: 500;
+}
+
+.slick-prev {
+	background: #fbfbfb;
+	color: #000;
+	border: 1px solid #000;
+}
+
+.slick-next {
+	background: #0a4770;
+	color: #fff;
+}
+
+.slick-disabled
+{
+    opacity: .25;
+	cursor: not-allowed;
+}
+
+/*////////////////////////////////////////////////////////////////////////////////
+// Slick Play and Pause Controls
+////////////////////////////////////////////////////////////////////////////////*/
+
+.slick-btn {
+    font-size: 0;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    border: 0;
+    transition: opacity, z-index, 0.2s ease-out;
+	padding: 1rem;
+
+}
+
+.slick-btn:before {
+    content: '';
+    position: absolute;
+    top: .5rem;
+    left: 14px;
+    width: 20px;
+    height: 20px;
+}
+
+.slick-play::before{
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    border-top: 10px solid transparent;
+    border-left: 12px solid #0a4770;
+    border-bottom: 10px solid transparent;
+}
+.slick-pause::before,
+.slick-pause::after {
+    content: '';
+    position: absolute;
+    top: .5rem;
+    border: 0;
+    border-radius: 0;
+    width: 6px;
+    height: 20px;
+    background: #0a4770;
+}
+
+.slick-pause::before {
+	left: 16px;
+}
+
+.slick-pause::after {
+	left: 27px;
+}
+
+
+.slick-btn[aria-hidden='true'],
+.slick-btn[aria-hidden='true']:hover,
+.slick-btn[aria-hidden='true']:focus {
+	opacity: 0;
+}
+
+
+.slick-btn[aria-hidden='false'],
+.slick-btn[aria-hidden='false']:hover,
+.slick-btn[aria-hidden='false']:focus {
+	opacity: 1;
+	z-index: 5;
+}

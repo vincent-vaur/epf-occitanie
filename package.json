@@ -5,7 +5,9 @@
   "main": "index.html",
   "scripts": {
     "start": "docker-compose -f docker/docker-compose.yml up -d",
-    "build": "node-sass --output-style compressed --source-map true --source-map-contents true --precision 6 wp-content/themes/com6-theme/scss/style.scss wp-content/themes/com6-theme/style.css"
+    "css:build": "node-sass --output-style compressed --source-map true --source-map-contents true --precision 6 wp-content/themes/com6-theme/scss/style.scss wp-content/themes/com6-theme/style.css",
+    "css:prefix": "postcss wp-content/themes/com6-theme/style.css --use autoprefixer -d wp-content/themes/com6-theme",
+    "build": "npm run css:build && npm run css:prefix"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
     "bootstrap": "^4.3.1"
   },
   "devDependencies": {
+    "autoprefixer": "^9.7.3",
     "connect-livereload": "^0.6.1",
     "grunt": "^1.0.4",
     "grunt-bake": "^1.9.0",
@@ -30,6 +33,7 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-sass": "^3.1.0",
     "load-grunt-tasks": "^5.1.0",
-    "node-sass": "^4.13.0"
+    "node-sass": "^4.13.0",
+    "postcss-cli": "^6.1.3"
   }
 }

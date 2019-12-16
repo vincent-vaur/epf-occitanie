@@ -1,21 +1,42 @@
 <?php
 /**
- * Template principal
+ * Page 404
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package WordPress
- * @subpackage Epf_Occitanie
- * @since 1.0.0
+ * @package KLX_BS4
  */
-get_header();
+ 
 
-if ( have_posts() ) {
+get_header(); ?>
 
-  while ( have_posts() ) {
-    the_post();
-    get_template_part( 'template-parts/content', get_post_type() );
-  }
-}
+        <div class="row no-gutters">
+        	
+            <div class="col-md-10">
+            	
+                <article <?php post_class(); ?>>
+                
+                    <header class="page-header">
+                        <div class="page-header-content">
+                        	<h1 class="page-title">Page non trouvée</h1> 
+                        </div>
+                    </header><!-- .entry-header -->
+					
+                    <article class="entry-content">
+						<h2>Aucune page ne correspond à cette requête.</h2>
+                        <p>Vous pouvez consulter le <a href="/plan-du-site">plan du site</a>,
+                        <p>ou faire une recherche en utilisant ce formulaire : </p>
+						<?php get_search_form();?>
+                    </article><!-- .entry-content -->
+                    
+
+                </article><!-- #post-## -->
+                
+    		</div><!-- col article -->
+            
+            <?php get_sidebar(); ?>
+         
+         </div>
+        
+        
+<?php 
 
 get_footer();

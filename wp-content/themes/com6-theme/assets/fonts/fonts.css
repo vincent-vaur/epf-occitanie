@@ -1,0 +1,13 @@
+/* font converted using font-converter.net. thank you! */
+@font-face {
+    font-family: 'montserrat';
+    src: url('montserrat-regular.woff2') format('woff2'),
+         url('montserrat-regular.woff') format('woff');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'montserrat';
+    src: url('montserrat-bold.woff2') format('woff2'),
+         url('montserrat-bold.woff') format('woff');
+    font-weight: bold;
+}

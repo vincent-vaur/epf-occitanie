@@ -10,17 +10,19 @@ class Walker_Menu_No_Ul extends Walker_Nav_Menu
   private $linkClasses;
 
   /**
-   * @param $linkClasses Classes à appliquer aux liens
+   * @param $linkClasses    Classes à appliquer aux liens
+   * @param $linkAttributes Attributs à appliquer aux liens
    */
-  function __construct($linkClasses)
+  function __construct($linkClasses, $linkAttributes = null)
   {
     $this->linkClasses = $linkClasses;
+    $this->linkAttributes = $linkAttributes;
   }
 
   /**
    * @inheritdoc
    */
-  function start_el(&$output, $item, $depth, $args)
+  function start_el(&$output, $item, $depth = 0, $args = NULL, $id = 0)
   {
     $classes = empty($item->classes) ? array() : (array) $item->classes;
     $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item));
@@ -32,7 +34,16 @@ class Walker_Menu_No_Ul extends Walker_Nav_Menu
     !empty($item->target) && $attributes .= ' target="' . esc_attr($item->target) . '"';
     !empty($item->xfn) && $attributes .= ' rel="' . esc_attr($item->xfn) . '"';
     !empty($item->url) && $attributes .= ' href="' . esc_attr($item->url) . '"';
-    !empty($this->linkClasses) && $attributes .= ' class="' . esc_attr($this->linkClasses) . '"';
+
+    $classes = !empty($item->classes) ? $item->classes : [];
+
+    if (!empty($this->linkClasses)) {
+      $classes[] = $this->linkClasses;
+    }
+
+    !empty($classes) && $attributes .= ' class="' . esc_attr(implode($classes, " ")) . '"';
+
+    !empty($this->linkAttributes) && $attributes .= ' ' . $this->linkAttributes;
 
     $title = apply_filters('the_title', $item->title, $item->ID);
     

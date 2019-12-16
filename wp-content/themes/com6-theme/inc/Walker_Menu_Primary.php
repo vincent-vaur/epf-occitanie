@@ -7,7 +7,7 @@ class Walker_Menu_Primary extends Walker_Nav_Menu
   /**
    * @inheritdoc
    */
-  function start_el(&$output, $item, $depth, $args)
+  function start_el(&$output, $item, $depth = 0, $args = NULL, $id = 0)
   {
     if ($depth === 0) {
       $output .= '<div>';
@@ -25,7 +25,7 @@ class Walker_Menu_Primary extends Walker_Nav_Menu
     !empty($item->url) && $attributes .= ' href="' . esc_attr($item->url) . '"';
 
     if ($depth > 0) {
-      $attributes .= ' class="col-4"';
+      $attributes .= ' class="col-6"';
     }
 
     $title = apply_filters('the_title', $item->title, $item->ID);
@@ -38,7 +38,7 @@ class Walker_Menu_Primary extends Walker_Nav_Menu
   /**
    * @inheritdoc
    */
-  function end_el(&$output, $item, $depth)
+  function end_el(&$output, $item, $depth = 0, $args = NULL)
   {
     if ($depth === 0) {
       $output .= '</div>';
