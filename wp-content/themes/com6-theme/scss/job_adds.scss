@@ -52,19 +52,28 @@
     max-width: 100%;
 
     @include media-breakpoint-up(sm) {
-      max-width: 80%;
       padding: $spacer * 3;
     }
 
+    @include media-breakpoint-up(md) {
+      max-width: 80%;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding: $spacer * 5;
+      max-width: 70%;
+    }
+
     @include media-breakpoint-up(xl) {
-      max-width: 50%;
+      max-width: 60%;
       padding: $spacer * 5;
     }
 
     .caldera-modal-body {
       padding: $spacer * 4;
       color: white;
-      background: #333;
+      background: url(assets/bg-form.png) center center no-repeat;
+      background-size: cover;
 
       @include media-breakpoint-down(sm) {
         padding: $spacer * 2;
@@ -73,35 +82,56 @@
       h2 {
         margin: 0 0 $spacer * 2 0;
         color: white;
+        font-weight: 300;
+        text-transform: none;
       }
 
       .form-group {
         margin: $spacer * 2 0;
-      }
 
-      .field_required {
-        color: $primary;
-      }
+        &.has-error {
+          label,
+          .help-block {
+            color: #fc3c38;
+          }
+        }
 
-      label {
-        font-weight: inherit;
-      }
+        .field_required {
+          color: $primary;
+        }
+  
+        label {
+          font-weight: inherit;
+        }
+  
+        input {
+          &.parsley-error,
+          &.parsley-success {
+            color: #555;
+            background: white;
+          }
+        }
+  
+        input:not([type="file"]),
+        textarea {
+          padding: $spacer * .5 $spacer;
+          border: solid 1px $primary;
+        }
+  
+        input[type="file"],
+        .help-block {
+          font-size: $spacer * .8;
+        }
 
-      input:not([type="file"]),
-      textarea {
-        padding: $spacer * .5 $spacer;
-        border: solid 1px $primary;
-      }
-
-      input[type="file"],
-      .help-block {
-        font-size: $spacer * .8;
-      }
-
-      .btn {
-        @include button-variant($primary, $primary);
-        padding: $spacer * 0.375 $spacer * 2;
-        text-transform: none;
+        .help-block {
+          color: #ccc;
+        }
+  
+        .btn {
+          @include button-variant($primary, $primary);
+          padding: $spacer * 0.375 $spacer * 2;
+          text-transform: none;
+        }
       }
     }
   }
