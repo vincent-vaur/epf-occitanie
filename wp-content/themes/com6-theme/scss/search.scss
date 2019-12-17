@@ -1,0 +1,16 @@
+.search-results {
+  .post-list {
+    a {
+      display: block;
+      transition: all 0.3s;
+      color: $body-color;
+
+      &:hover {
+        color: white;
+        background: $secondary;
+        transform: scale(1.02);
+        transition: all 0.3s;
+      }
+    }
+  }
+}

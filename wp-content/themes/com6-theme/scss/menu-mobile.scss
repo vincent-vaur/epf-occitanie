@@ -1,0 +1,142 @@
+.page-header-mobile {
+  h1 {
+    img {
+      width: 60px;
+      height: auto;
+    }
+  }
+
+  form {
+    padding: 0;
+    background: white;
+
+    .input-group {
+      background: #eeeeee55;
+    }
+    
+    input {
+      margin-right: 1px;
+      background: transparent;
+    }
+
+    button {
+      color: white;
+    }
+  }
+
+  i {
+    height: 60px;
+    font-size: $spacer * 1.6;
+  }
+
+  .menu-mobile {
+    position: fixed !important;
+    display: none;
+    width: 100% !important;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 0 0 80px 0;
+    margin: 110px 0 0 0;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 999;
+    overflow-y: auto;
+
+    .menu-top {
+      display: flex;
+      background: linear-gradient(100deg, #1bbbc5, #2aa2d4);
+
+      .divider {
+        width: $spacer *.5;
+        height: auto;
+        background: white;
+      }
+
+      a {
+        color: white;
+
+        &::before {
+          margin-right: $spacer;
+        }
+      }
+
+      .menu-social-mobile {
+        display: flex;
+        align-items: center;
+        padding-left: $spacer;
+      }
+    }
+
+    .menu-lvl-2-mobile {
+      background: white;
+
+      i {
+        display: none;
+        cursor: pointer;
+      }
+
+      .sub-menu {
+        box-shadow: none !important;
+      }
+
+      > div {
+        > .link-wrapper {
+          display: flex;
+          align-items: center;
+          margin: 0;
+          background: $primary;
+
+          > i {
+            display: block;
+            margin-left: $spacer;
+            $icon-size: $spacer * 2.5;
+            height: $icon-size;
+            width: $icon-size;
+            line-height: $icon-size;
+            color: white;
+            text-align: center;
+            background: $secondary;
+          }
+
+          > a {
+            padding: $spacer;
+            color: white;
+          }
+
+          & + div {
+            display: none;
+            position: relative;
+            margin: 0;
+            padding: $spacer 0 $spacer * 0.5 $spacer;
+
+            a {
+              display: block;
+              padding: $spacer * 0.5 0;
+            }
+          }
+        }
+
+        &:last-child {
+          i {
+            visibility: hidden;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .admin-bar {
+    .menu-lvl-2 {
+      margin-top: 86px;
+    }
+  }
+}
+
+.burger-btn {
+  padding: 0 $spacer;
+  background: #eee;
+  cursor: pointer;
+}

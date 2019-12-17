@@ -52,26 +52,6 @@
     }
   }
 
-  .category {
-    position: absolute;
-    font-size: $spacer * .8;
-
-    a {
-      display: block;
-      width: 100%;
-      height: 100%;
-      padding: $spacer * .25 $spacer * 1.5;
-      color: white;
-      background: $primary;
-      transition: all .3s;
-
-      &:hover {
-        background: $secondary;
-        transition: all .3s;
-      }
-    }
-  }
-
   .thumbnail {
     width: 100%;
     height: 200px;

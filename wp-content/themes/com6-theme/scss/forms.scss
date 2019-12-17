@@ -1,0 +1,77 @@
+.caldera-grid {
+  padding: $spacer * 4;
+  color: white;
+  background: url(../assets/bg-form.jpg) center center no-repeat;
+  background-size: cover;
+
+  @include media-breakpoint-down(sm) {
+    padding: $spacer * 2;
+  }
+
+  h2 {
+    margin: 0 0 $spacer * 2 0;
+    color: white;
+    font-weight: 300;
+    text-transform: none;
+  }
+
+  .form-group {
+    margin: $spacer * 2 0;
+
+    &.has-error {
+      label,
+      .help-block {
+        color: #fc3c38;
+      }
+    }
+
+    .field_required {
+      color: $primary;
+    }
+
+    label {
+      font-weight: inherit;
+    }
+
+    input,
+    textarea {
+      &.parsley-error,
+      &.parsley-success {
+        color: #555;
+        background: white;
+      }
+    }
+
+    input:not([type="file"]),
+    textarea {
+      padding: $spacer * 0.5 $spacer;
+      border: solid 1px $primary;
+    }
+
+    input[type="file"],
+    .help-block {
+      font-size: $spacer * 0.8;
+    }
+
+    .help-block {
+      color: #ccc;
+    }
+
+    .btn {
+      @include button-variant($primary, $primary);
+      padding: $spacer * 0.375 $spacer * 2;
+      text-transform: none;
+    }
+  }
+
+  .alert {
+    &.alert-success {
+      padding: $spacer * 2;
+      text-align: center;
+      font-size: $spacer * 2;
+      font-weight: bold;
+      border: none;
+      background: white;
+    }
+  }
+}

@@ -5,9 +5,9 @@
   "main": "index.html",
   "scripts": {
     "start": "docker-compose -f docker/docker-compose.yml up -d",
-    "css:build": "node-sass --output-style compressed --source-map true --source-map-contents true --precision 6 wp-content/themes/com6-theme/scss/style.scss wp-content/themes/com6-theme/style.css",
-    "css:prefix": "postcss wp-content/themes/com6-theme/style.css --use autoprefixer -d wp-content/themes/com6-theme",
-    "build": "npm run css:build && npm run css:prefix"
+    "build": "node-sass --output-style compressed --source-map true --source-map-contents true --precision 6 wp-content/themes/com6-theme/scss/_style.scss wp-content/themes/com6-theme/style.css",
+    "build:prod": "cross-env NODE_ENV=production webpack",
+    "webpack": "webpack"
   },
   "repository": {
     "type": "git",
@@ -23,17 +23,18 @@
     "bootstrap": "^4.3.1"
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.3",
-    "connect-livereload": "^0.6.1",
-    "grunt": "^1.0.4",
-    "grunt-bake": "^1.9.0",
-    "grunt-contrib-connect": "^2.1.0",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-uglify-es": "^3.3.0",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-sass": "^3.1.0",
-    "load-grunt-tasks": "^5.1.0",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.4.0",
+    "cssnano": "^4.1.10",
+    "file-loader": "^5.0.2",
+    "mini-css-extract-plugin": "^0.8.2",
     "node-sass": "^4.13.0",
-    "postcss-cli": "^6.1.3"
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "resolve-url-loader": "^3.1.1",
+    "sass-loader": "^8.0.0",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10"
   }
 }

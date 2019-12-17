@@ -52,7 +52,7 @@ figcaption {
 @mixin block-button($direction: left) {
   content: "";
   display: block;
-  background: url(assets/bordered-button.png) no-repeat;
+  background: url(../assets/bordered-button.png) no-repeat;
   height: 28px;
   width: 39px;
   background-size: contain;

@@ -1,0 +1,119 @@
+.page-header {
+  box-shadow: 0 0.4rem 0.5rem rgba(#000, 0.3);
+  text-align: center;
+
+  form {
+    .input-group,
+    .input-group-append,
+    input {
+      height: 100%;
+    }
+
+    input {
+      border-bottom: solid 1px $secondary;
+    }
+  }
+
+  .menu-wrapper {
+    background: linear-gradient(100deg, #1bbbc5, #2aa2d4);
+
+    .btn {
+      color: white;
+    }
+  }
+
+  .menu-lvl-1 {
+    a {
+      &::before {
+        margin-right: $spacer;
+      }
+    }
+  }
+
+  .menu-social {
+    border-left: solid $spacer white;
+
+    a {
+      background: transparent;
+    }
+  }
+
+  .menu-lvl-2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: $spacer 0 $spacer * 0.5 0;
+
+    a {
+      color: $body-color;
+
+      &:hover,
+      &:focus {
+        color: $primary;
+      }
+    }
+
+    > div {
+      display: flex;
+      align-items: center;
+      padding: $spacer 0;
+
+      &:hover,
+      &:focus {
+        .sub-menu {
+          @include animate(fadeIn, 0.8s);
+          display: flex;
+        }
+      }
+
+      &:after {
+        content: "\f111";
+        font-family: "epf-occitanie-icons";
+        margin-right: $spacer;
+        color: $secondary;
+        font-size: $spacer * 0.5;
+      }
+
+      &:last-child {
+        &::after {
+          display: none;
+        }
+      }
+
+      > .link-wrapper {
+        margin-right: $spacer;
+      }
+    }
+
+    .sub-menu {
+      display: none;
+      width: 100%;
+      position: absolute;
+      flex-wrap: wrap;
+      left: 0;
+      top: 100%;
+      padding: $spacer $spacer * 0.5;
+      margin-right: $spacer * 2;
+      background: white;
+      border-top: solid 2px $primary;
+      z-index: 999;
+
+      .link-wrapper {
+        width: 50%;
+        text-align: left;
+        padding: $spacer * 0.5 0;
+      }
+    }
+  }
+
+  // Ajustement du logo en responsive
+  h1 {
+    img {
+      @include media-breakpoint-down(md) {
+        width: 80px;
+        height: auto;
+      }
+    }
+  }
+}

@@ -16,12 +16,16 @@ body {
 @import "./table.scss";
 @import "./navigation.scss";
 @import "./pagination.scss";
+@import "./category-label.scss";
 
 @import "./global.scss";
 @import "./header.scss";
+@import "./menu.scss";
+@import "./menu-mobile.scss";
 @import "./footer.scss";
 @import "./breadcrumb.scss";
 @import "./accordion.scss";
+@import "./forms.scss";
 @import "./rapid-access.scss";
 @import "./related-menu.scss";
 @import "./layout-2-columns.scss";
@@ -33,3 +37,4 @@ body {
 @import "./news.scss";
 @import "./job_adds.scss";
 @import "./publications.scss";
+@import "./search.scss";

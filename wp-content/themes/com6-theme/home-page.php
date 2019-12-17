@@ -15,7 +15,7 @@ get_header(); ?>
     <?php if (has_post_thumbnail($page_id)) : ?>
       <?php get_the_post_thumbnail($page_id, 'medium') ?>
     <?php else : ?>
-      <img src="<?= get_template_directory_uri() . "/assets/post-default-thumbnail.png" ?>" alt="Image de l'article par défaut" />
+      <img src="<?= get_template_directory_uri() . "/assets/post-default-thumbnail.jpg" ?>" alt="Image de l'article par défaut" />
     <?php endif; ?>
   </div>
 </div>
