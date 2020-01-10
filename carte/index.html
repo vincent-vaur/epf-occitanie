@@ -14,8 +14,8 @@
 
   <style>
     #map {
-      width: 500px;
-      height: 500px;
+      width: 100%;
+      height: 700px;
     }
 
     .leaflet-container {
@@ -27,10 +27,42 @@
       stroke-width: 1;
       fill: white;
       fill-opacity: 1;
+      cursor: auto;
     }
 
-    .leaflet-marker-icon {
-      /* display: none; */
+    .city-container .carret {
+      width: 8px;
+      height: 8px;
+      background: #e96607;
+      border: solid 1px #f6b66e;
+    }
+
+    .city-container .label {
+      width: 150px;
+      margin-left: -69px;
+      text-align: center;
+    }
+
+    .city-marker {
+      position: absolute;
+      top: -50%;
+      left: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50% 50% 50% 0;
+      background: #d72539;
+      transform: rotate(-45deg);
+      cursor: pointer;
+    }
+
+    .city-marker::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      margin: 3px 0 0 3px;
+      background: white;
+      border-radius: 50%;
     }
   </style>
 </head>
@@ -40,18 +72,13 @@
     <div id="map"></div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/36c54b66e9.js" crossorigin="anonymous"></script>
-  <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" crossorigin="anonymous"></script>
+  <script src="./regions.js" crossorigin="anonymous"></script>
+  <script src="./cities.js" crossorigin="anonymous"></script>
+  <script src="./sites.js" crossorigin="anonymous"></script>
 
-  <script src="./geoJSON.js" crossorigin=""></script>
-  
   <script>
     const map = L.map("map", {
-      zoom: 7,
       attributionControl: false,
       zoomControl: false,
       boxZoom: false,
@@ -60,31 +87,37 @@
       scrollWheelZoom: false,
     });
 
-    const dataLayer = L.geoJSON(geoJSON, {
+    // Calque des contours des régions
+    const regionsLayer = L.geoJSON(regions).addTo(map);
+
+    // Calque des préfectures
+    const citiesLayer = L.geoJSON(cities, {
       onEachFeature: function (feature, layer) {
-        if (feature.properties.type === "Préfecture") {
-          console.log(layer)
-          L.marker(layer.getBounds().getCenter(), {
-            icon: L.divIcon({
-              className: 'label',
-              html: feature.properties.nom_commun,
-              iconSize: [100, 40]
-            })
-          }).addTo(map);
-        }
+        L.marker(layer.getBounds().getCenter(), {
+          icon: L.divIcon({
+            className: 'city-container',
+            html: '<div class="carret"></div><div class="label">' + feature.properties.nom_commun + '</div>'
+          })
+        }).addTo(map);
       }
     });
 
-    dataLayer.addTo(map);
+    // Ajout des sites
+    sites.forEach(function (site) {
+      L.marker(site.coordinates, {
+        icon: L.divIcon({
+          className: 'city-marker-container',
+          html: '<div class="city-marker"></div>'
+        })
+      }).addTo(map);
+    });
 
     L.tileLayer("", {
-      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-      minZoom: 7,
-      maxZoom: 7,
-      bounds: dataLayer.getBounds()
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+      bounds: regionsLayer.getBounds()
     }).addTo(map);
 
-    map.fitBounds(dataLayer.getBounds());
+    map.fitBounds(regionsLayer.getBounds());
   </script>
 </body>
 

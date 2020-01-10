@@ -16,4 +16,4 @@ const cities = {
     { "type": "Feature", "properties": { "gid": 28, "insee_comm": "09122", "nom_commun": "Foix", "type": "Préfecture" }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 1.607005919442217, 42.965114091122494 ] ] } },
     { "type": "Feature", "properties": { "gid": 233, "insee_comm": "66136", "nom_commun": "Perpignan", "type": "Préfecture" }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 2.893950162666474, 42.695094257893381 ] ] } }
   ]
-}
+};
