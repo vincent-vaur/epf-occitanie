@@ -55,7 +55,9 @@ function c6_theme_setup()
   ));
 
   // taille des images
-  add_image_size('entete', 975, 372); // image d'entête
+  add_image_size('entete', 1200, 458, true); // image d'entête
+  add_image_size('slider', 1085, 400, true); // image d'entête
+  add_image_size('article', 730, 200, true); // image article page home.php
 
   /* image des archives ( paysage) */
 
@@ -118,11 +120,16 @@ add_action('wp_enqueue_scripts', function () {
   wp_enqueue_script('c6-bootstrap', get_theme_file_uri() . '/assets/js/bootstrap.min.js', array('jquery'), '4.0', true);
   wp_enqueue_script('c6-skip-link-focus-fix', get_theme_file_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true);
 
-  // Slick Carousel
   if (is_front_page()) :
+    // Slick Carousel
     wp_enqueue_style('slick-css', get_theme_file_uri('/assets/slick/slick.css'), '1.9');
     wp_enqueue_style('slick-theme', get_theme_file_uri('/assets/slick/slick-theme.css'), '1.9');
     wp_enqueue_script('slick-js', get_theme_file_uri('/assets/slick/slick.min.js'), array('jquery'), '1.9', true);
+
+    // Waypoints
+    wp_enqueue_script('waypoints', get_theme_file_uri('/assets/js/waypoints.min.js'), '1.9', true);
+
+    // Scripts de la page d'accueil
     wp_enqueue_script('page-home-js', get_theme_file_uri('/assets/js/page-home.js'), array('jquery', 'slick-js'), filemtime(get_stylesheet_directory() . '/assets/js/page-home.js'), true);
   endif;
 
@@ -135,9 +142,20 @@ add_action('wp_enqueue_scripts', function () {
   // theme 
   wp_enqueue_style('theme-style', get_stylesheet_uri(), null, filemtime(get_stylesheet_directory() . '/style.css'));
   wp_enqueue_script('theme-script', get_theme_file_uri() . '/assets/js/theme-script.js', array('jquery', 'c6-bootstrap'), filemtime(get_stylesheet_directory() . '/assets/js/theme-script.js'), true);
+  
+  // Ajoute les bons prefixe au CSS (-webkit-flex ...) pour gérer correctement les flexbox sur iOS
+  wp_enqueue_script('prefixfree', get_theme_file_uri('/assets/js/prefixfree.min.js'), [], null, false);
 
-  // variables pour notre script, utilisé pour contrast-css
-  wp_add_inline_script('theme-script', 'var template_url = "' . get_theme_file_uri() . '"');
+  // Leaflet
+  wp_enqueue_style( 'leaflet', get_theme_file_uri() . '/assets/leaflet/leaflet.css', '1.4.0');
+  wp_enqueue_style( 'leaflet-cluster', get_theme_file_uri() . '/assets/leaflet/MarkerCluster.css', '1.4.0');
+
+  wp_enqueue_script('leaflet', get_theme_file_uri() . '/assets/leaflet/leaflet.js', NULL, '1.4.0', true );
+  wp_enqueue_script('leaflet-cluster', get_theme_file_uri() . '/assets/leaflet/leaflet.markercluster.js', array('leaflet'), NULL, true );
+  wp_enqueue_script('leaflet-script', get_theme_file_uri() . '/assets/leaflet/carte.js', array('leaflet'), NULL, true );
+
+  wp_enqueue_script('carte-interactive-regions', get_theme_file_uri() . '/assets/leaflet/data/regions.js', array('leaflet'), NULL, true );
+  wp_enqueue_script('carte-interactive-cities', get_theme_file_uri() . '/assets/leaflet/data/cities.js', array('leaflet'), NULL, true );
 });
 
 // supprime les sections inutiles du customizer

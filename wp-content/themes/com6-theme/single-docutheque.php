@@ -23,7 +23,7 @@ get_header(); ?>
       <?php if ($entete_id) : ?>
         <?= wp_get_attachment_image($entete_id, 'entete') ?>
       <?php else : ?>
-        <img src="<?= get_template_directory_uri() . "/assets/post-default-thumbnail.jpg" ?>" alt="Image de l'article par défaut" />
+        <img src="<?= get_template_directory_uri() . "/assets/post-default-thumbnail.png" ?>" alt="Image de l'article par défaut" />
       <?php endif; ?>
     </div>
   </div>

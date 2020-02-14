@@ -14,7 +14,7 @@ get_header(); ?>
     <?php if ($entete_id) : ?>
       <?= wp_get_attachment_image($entete_id, 'entete') ?>
     <?php else : ?>
-      <img src="<?= get_template_directory_uri() . "/assets/post-default-thumbnail.jpg" ?>" alt="Image de l'article par défaut" />
+      <img src="<?= get_template_directory_uri() . "/assets/post-default-thumbnail.png" ?>" alt="Image de l'article par défaut" />
     <?php endif; ?>
   </div>
 </div>
@@ -62,7 +62,7 @@ get_header(); ?>
           <?php while (have_posts()) : the_post();
             $type_media = get_type_media(get_the_ID()); ?>
             
-            <div class="px-3 my-5 col-xs-12 col-md-6 <?= ($type_media != 'videos') ? 'col-xl-4' : '' ?>">
+            <div class="px-3 my-5 col-sm-6 <?= ($type_media != 'videos') ? 'col-xl-4' : '' ?>">
               <?php get_template_part('template-parts/content', $type_media); ?>
             </div>
           <?php endwhile; ?>

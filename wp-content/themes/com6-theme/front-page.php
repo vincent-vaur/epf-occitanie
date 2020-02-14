@@ -18,8 +18,7 @@ get_header(); ?>
             <?php setup_postdata($post) ?>
 
             <div class="row news-wrapper <?= $index === 0 ? 'current' : '' ?>">
-              <?php the_post_thumbnail() ?>
-
+              <?php if ( $entete_id = get_field('image_entete') ) echo wp_get_attachment_image($entete_id, 'entete') ?>
               <div class="col-12 offset-md-6 col-md-7 offset-lg-5 col-lg-7 content-wrapper">
                 <div class="py-4 px-5 content shadow">
                   <h3>
@@ -60,7 +59,7 @@ get_header(); ?>
             <div class="w-100"></div>
 
             <div class="col-12 col-md-5 text-center">
-              <a class="mb-3 mx-5 shadow btn btn-secondary text-uppercase" href="/actualites">
+              <a class="mb-3 mx-5 shadow btn btn-secondary text-uppercase" href="<?php echo get_permalink( get_option( 'page_for_posts') );?> ">
                 Toute l'actu
                 <i class="icon icon-left"></i>
               </a>
@@ -75,7 +74,7 @@ get_header(); ?>
     <section class="missions row justify-content-center">
       <div class="col-xs-12 col-lg-8">
         <h2 class="ml-2 mt-1 text-center text-body">
-          Expertise <span class="text-secondary">&</span> <strong>missions</strong>
+          Expertises <span class="text-secondary">&</span> <strong>missions</strong>
         </h2>
 
         <div class="position-relative">
@@ -89,7 +88,7 @@ get_header(); ?>
 
               <div>
                 <a href="<?= $post->url ?>">
-                  <img src="<?= get_field("icone-menu") ?>">
+                  <img src="<?= get_image_b64_src( get_field("icone-menu") ) ?>" alt="">
                   <?php the_title() ?>
                 </a>
               </div>
@@ -160,10 +159,14 @@ get_header(); ?>
 
   <?php if ($numbers = [get_field('bloc_1'), get_field('bloc_2'), get_field('bloc_3')]) : ?>
     <section class="number-list row align-items-baseline no-gutters text-center text-white">
-      <?php foreach ($numbers as $number) : ?>
+      <?php foreach ($numbers as $index => $number) : ?>
         <div class="number-container col-4 d-flex flex-column align-items-center">
-          <p class="figure font-weight-bold"><?= $number['chiffre'] ?></p>
-          <img src="<?= $number['logo'] ?>" />
+          <p id="counter-<?= $index ?>" data-counter="<?= $number['chiffre'] ?>" class="figure font-weight-bold">
+            0
+          </p>
+          
+          <img src="<?= $number['logo'] ?>" alt="" />
+          
           <p class="label mt-4 font-weight-bold"><?= $number['texte'] ?></p>
         </div>
       <?php endforeach; ?>
@@ -180,7 +183,7 @@ get_header(); ?>
           </h2>
 
           <p class="my-4">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Retrouvez prochainement la carte interactive des sites.
           </p>
 
           <form>
@@ -198,7 +201,7 @@ get_header(); ?>
     </div>
 
     <div class="col-xs-12 col-sm-5 right">
-      <img src="<?= get_bloginfo('template_url') ?>/assets/carte-occitanie.svg" />
+      <img src="<?= get_bloginfo('template_url') ?>/assets/carte-occitanie.svg" alt="carte occitanie"/>
     </div>
   </section>
 <?php endwhile; ?>

@@ -4,16 +4,17 @@
  *
  * @package KLX_BS4
  */
+
 get_header(); ?>
 
 <?php while (have_posts()) : the_post(); ?>
 
   <div class="row no-gutters">
     <div class="col-12 page-image-container">
-      <?php if (has_post_thumbnail()) : ?>
-        <?php the_post_thumbnail() ?>
+      <?php if ( $entete_id = get_field('image_entete') ) : ?>
+        <?= wp_get_attachment_image($entete_id, 'entete') ?>
       <?php else : ?>
-        <img src="<?= get_template_directory_uri() . "/assets/post-default-thumbnail.jpg" ?>" alt="Image de l'article par défaut" />
+        <img src="<?= get_template_directory_uri() . "/assets/post-default-thumbnail.png" ?>" alt="Image de l'article par défaut" />
       <?php endif; ?>
     </div>
   </div>
@@ -35,7 +36,7 @@ get_header(); ?>
         </h1>
 
         <p class="px-2 px-sm-5 mb-2">
-          <?= get_the_excerpt() ?>
+          <?php the_field( 'chapo' ) ?>
         </p>
       </header>
 

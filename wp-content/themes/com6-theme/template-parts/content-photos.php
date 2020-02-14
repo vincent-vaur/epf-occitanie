@@ -1,4 +1,6 @@
 <article <?php post_class("d-flex flex-column h-100 shadow position-relative") ?>>
+  <?php the_terms( get_the_ID(), 'cat-docutheque', '<div class="category-label">', '|', "</div>" ); ?>
+
   <?php if (has_post_thumbnail()) : ?>
     <a href="<?= get_permalink() ?>">
       <?= get_the_post_thumbnail(NULL, NULL, ['class' => 'w-100 h-auto']) ?>

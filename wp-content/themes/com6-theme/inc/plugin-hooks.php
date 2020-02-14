@@ -71,3 +71,39 @@ add_filter( 'seopress_sitemaps_html_query', function( $args, $cpt_key ) {
 	}
 	return $args;
 },10,2);
+
+
+
+
+
+// PAGES / ARTICLES AJOUT DE LA VIGNETTE DANS LA LISTE
+
+// Supprime l'image à la une pour les articles / pages
+function c6_remove_thumbnail_for_post_page() {
+    remove_post_type_support( 'post', 'thumbnail' );
+	remove_post_type_support( 'page', 'thumbnail' );
+	remove_post_type_support( 'page', 'excerpt' );
+	remove_post_type_support( 'post', 'excerpt' );
+}
+add_action( 'init', 'c6_remove_thumbnail_for_post_page' );
+
+// edit.php : nom des colonnes
+add_filter( 'manage_pages_columns', function( $columns ) {
+	$columns['entete'] = 'entête';
+	return $columns;
+});			
+	
+// edit.php : contenu des colonnes
+add_action( 'manage_pages_custom_column', function( $column, $post_id ) {
+	if ( $column == 'entete' && $entete_id = get_field('image_entete', $post_id ) ) echo wp_get_attachment_image($entete_id, array(0,100));
+}, 10, 2 );
+// edit.php : nom des colonnes
+add_filter( 'manage_post_posts_columns', function( $columns ) {
+	$columns['entete'] = 'entête';
+	return $columns;
+});			
+	
+// edit.php : contenu des colonnes
+add_action( 'manage_post_posts_custom_column', function( $column, $post_id ) {
+	if ( $column == 'entete' && $entete_id = get_field('image_entete', $post_id ) ) echo wp_get_attachment_image($entete_id, array(0,100));
+}, 10, 2 );	

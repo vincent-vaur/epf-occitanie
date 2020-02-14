@@ -12,10 +12,10 @@ get_header(); ?>
 
 <div class="row no-gutters">
   <div class="col-12 page-image-container">
-    <?php if (has_post_thumbnail($page_id)) : ?>
-      <?= get_the_post_thumbnail($page_id, 'entete') ?>
+    <?php if ( $entete_id = get_field('image_entete',$page_id)) : ?>
+      <?= wp_get_attachment_image($entete_id, 'entete') ?>
     <?php else : ?>
-      <img src="<?= get_template_directory_uri() . "/assets/post-default-thumbnail.jpg" ?>" alt="Image de l'article par défaut" />
+      <img src="<?= get_template_directory_uri() . "/assets/post-default-thumbnail.png" ?>" alt="Image de l'article par défaut" />
     <?php endif; ?>
   </div>
 </div>
@@ -37,7 +37,7 @@ get_header(); ?>
       </h1>
 
       <p class="px-5 mb-2">
-        <?= get_the_excerpt($page_id) ?>
+        <?= get_field( 'chapo', $page_id ) ?>
       </p>
     </header>
 
@@ -50,14 +50,14 @@ get_header(); ?>
             <article <?php post_class("col-xs-12 col-md-6 px-3 my-5 position-relative") ?>>
               <div class="d-flex flex-column h-100 shadow">
                 <?php if (has_term('', 'category')) : ?>
-                  <div class="category">
+                  <div class="category-label">
                     <?php the_category('|') ?>
                   </div>
                 <?php endif; ?>
 
-                <?php if (has_post_thumbnail()) : ?>
-                  <div class="thumbnail" style="background-image: url(<?= get_the_post_thumbnail_url(null, 'largeur-350') ?>)">
-                    <?php the_post_thumbnail('largeur-350', ['class' => 'sr-only']) ?>
+                <?php if ( $image_id = get_field('image_entete') ) : ?>
+                  <div class="thumbnail" style="background-image: url(<?= wp_get_attachment_image_url( $image_id, 'article') ?>)">
+                    <?php //the_post_thumbnail('largeur-350', ['class' => 'sr-only']) ?>
                   </div>
                 <?php endif; ?>
 
@@ -66,7 +66,7 @@ get_header(); ?>
                     <?php the_title() ?>
                   </h2>
 
-                  <?php the_excerpt(); ?>
+                  <?php the_field( 'chapo' ); ?>
                 </div>
               </div>
 

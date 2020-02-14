@@ -1,6 +1,6 @@
 /**
  * Utilisation d'une fonction IIFE pour éviter les conflits :p
- * 
+ *
  * @see https://developer.mozilla.org/fr/docs/Glossaire/IIFE
  */
 (function($) {
@@ -11,6 +11,7 @@
     initNewsSlider();
     initMissionsSlider();
     initPublicationSlider();
+    initCounters();
   }
 
   /**
@@ -48,7 +49,7 @@
    * Met à jour la puce active du slider des actualités
    */
   function updateLastNewNavigation() {
-    $(".home-last-news .navigation li")
+    $(".home-last-news li")
       .removeClass("active")
       .eq($(".news .current").index() + 1)
       .addClass("active");
@@ -59,7 +60,7 @@
    * SLICK n'est pas utilisé ici car peu adapté.
    */
   function initNewsSlider() {
-    const buttons = $(".home-last-news .navigation .nav-btn");
+    const buttons = $(".home-last-news .nav-btn");
 
     // Bouton précédent
     buttons.eq(0).click(function(e) {
@@ -93,9 +94,16 @@
     $(".home-last-news .navigation li:not(:first-child):not(:last-child) a").click(function(e) {
       e.preventDefault();
       $(".news .current").removeClass("current");
-      $(".news .news-wrapper").eq($(this).parents("ul").find("li").index($(this).parent("li")) - 1).addClass("current");
+      $(".news .news-wrapper")
+        .eq(
+          $(this)
+            .parents("ul")
+            .find("li")
+            .index($(this).parent("li")) - 1,
+        )
+        .addClass("current");
       updateLastNewNavigation();
-    })
+    });
   }
 
   /**
@@ -135,6 +143,43 @@
       ".navigation-buttons a:first-child",
       ".navigation-buttons a:last-child",
     );
+  }
+
+  /**
+   * Lance une animation sur les chiffres clés lorsque
+   * la zone "number-container" commence à être visible
+   * 
+   * @see http://imakewebthings.com/waypoints/
+   */
+  function initCounters() {
+    new Waypoint({
+      element: $(".number-container").get(0),
+      handler: function() {
+        $('[id^="counter-').each(function() {
+          var $this = $(this),
+              countTo = $this.attr('data-counter');
+          console.log( countTo );
+          $({ countNum: $this.text()}).animate({
+            countNum: countTo
+          },
+          {
+            duration: 3000,
+            easing:'linear',
+            step: function() {
+              $this.text(Math.floor(this.countNum));
+            },
+            complete: function() {
+              $this.text(this.countNum);
+            }
+          });  
+        });
+		this.destroy()
+      },
+
+      // Lance la fonction handler lorsque l'élément ciblé
+      // atteind les 90% de la hauteur de l'écran
+      offset: "90%"
+    });
   }
 
   init();

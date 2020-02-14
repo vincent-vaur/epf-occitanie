@@ -16,7 +16,7 @@ get_header(); ?>
       <?php if (has_post_thumbnail()) : ?>
         <?php the_post_thumbnail() ?>
       <?php else : ?>
-        <img src="<?= get_template_directory_uri() . "/assets/post-default-thumbnail.jpg" ?>" alt="Image de l'article par défaut" />
+        <img src="<?= get_template_directory_uri() . "/assets/post-default-thumbnail.png" ?>" alt="Image de l'article par défaut" />
       <?php endif; ?>
     </div>
   </div>
@@ -38,7 +38,7 @@ get_header(); ?>
         </h1>
 
         <p class="px-5 mb-2">
-          <?= get_the_excerpt() ?>
+          <?= get_field('chapo') ? get_field('chapo') : get_the_excerpt() ?>
         </p>
       </header>
 
