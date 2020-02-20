@@ -1,0 +1,144 @@
+.post-type-archive-site {
+    // Formulaire de recherche
+    input {
+      padding: $spacer * .5;
+      font-size: 16px;
+      line-height: 1.2;
+      border: solid 1px #c5c5c5;
+    }
+
+    // Liste des typographies
+    ul {
+      display: flex;
+      padding: 0;
+
+      li {
+        ul {
+          display: block;
+        }
+
+        &.sf-field-taxonomy-typologie {
+          position: relative;
+          flex-grow: 1;
+          margin-left: $spacer;
+          cursor: pointer;
+
+          h4 {
+            padding: $spacer * .5;
+            color: white;
+            background: $secondary;
+            border: solid 1px $secondary;
+          }
+
+          ul {
+            position: absolute;
+            display: none;
+            width: 100%;
+            margin: 0;
+            padding: $spacer;
+            background: white;
+            border: solid 1px #eee;
+            z-index: 999;
+          }
+
+          &:hover {
+            ul {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    #carteInteractive {
+      width: 100%;
+      height: 800px;
+  
+      @include media-breakpoint-down(sm) {
+        height: 300px;
+      }
+    }
+  
+    .leaflet-container {
+      background: transparent;
+    }
+
+    // Zoom control
+    .leaflet-left .leaflet-control {
+      margin-left: 0;
+    }
+
+    .leaflet-top .leaflet-control {
+      margin-top: 0;
+    }
+
+    .leaflet-interactive {
+      cursor: auto;
+    }
+  
+    // Régions
+    .leaflet-interactive {
+      stroke: #1bbbc5;
+      stroke-width: 1;
+      fill: white;
+      fill-opacity: 1;
+    }
+
+    // Zones EPF
+    .leaflet-interactive.zone {
+      stroke: #106f75;
+      stroke-width: 1;
+      fill: #1bbbc5;
+      fill-opacity: .2;
+    }
+  
+    // Préfectures
+    .city-container .carret {
+      width: 8px;
+      height: 8px;
+      background: #e96607;
+      border: solid 1px #f6b66e;
+    }
+  
+    // Nom des préfectures
+    .city-container .label {
+      width: 150px;
+      margin-left: -69px;
+      text-align: center;
+    }
+  
+    // Markers
+    .leaflet-interactive.leaflet-marker-icon {
+      cursor: pointer;
+    }
+
+    // Modal
+    .modal-content {
+      border: none;
+
+      .container-fluid {
+        padding: 0;
+      }
+
+      .typology, .type {
+        font-weight: bold;
+      }
+
+      .thumbnail-container {
+        padding-left: $spacer;
+      }
+    }
+
+    .modal-header {
+      align-items: center;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      background: linear-gradient(180deg, #5eb9c5, #4c9abf) no-repeat border-box;
+
+      p {
+        margin: 0; 
+      }
+    }
+  }
+  

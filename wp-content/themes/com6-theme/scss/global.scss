@@ -23,22 +23,30 @@ h3 {
 }
 
 article {
-  ul {
+  ul:not(.blocks-gallery-grid) {
     padding: 0;
     list-style-type: none;
 
     li {
       &::before {
         display: inline-block;
-        width: $spacer * 0.7;
-        height: $spacer * 0.7;
-        margin-right: $spacer;
+        width: $spacer * 0.5;
+        height: $spacer * 0.5;
+        margin-bottom: $spacer * 0.1;
+        margin-right: $spacer * 0.5;
         background: $primary;
         content: "";
       }
 
       ul {
         padding-left: $spacer * 2;
+
+        li {
+          &:before {
+            width: $spacer * 0.3;
+            height: $spacer * 0.3;
+          }
+        }
       }
     }
   }
@@ -59,7 +67,7 @@ figcaption {
 @mixin block-button($direction: left) {
   content: "";
   display: block;
-  background: url(../assets/bordered-button.png) no-repeat;
+  background: url(assets/bordered-button.png) no-repeat;
   height: 28px;
   width: 39px;
   background-size: contain;

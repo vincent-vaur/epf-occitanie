@@ -1,7 +1,7 @@
 .caldera-grid {
   padding: $spacer * 4;
   color: white;
-  background: url(../assets/bg-form.jpg) center center no-repeat;
+  background: url(assets/bg-form.jpg) center center no-repeat;
   background-size: cover;
 
   @include media-breakpoint-down(sm) {

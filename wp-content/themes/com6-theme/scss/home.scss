@@ -318,7 +318,7 @@ section {
 .number-list {
   height: 449px;
   font-size: $spacer * 2.5;
-  background: url(../assets/home/bg-numbers.png) no-repeat;
+  background: url(assets/home/bg-numbers.png) no-repeat;
   background-size: cover;
 
   @include media-breakpoint-only(xs) {
