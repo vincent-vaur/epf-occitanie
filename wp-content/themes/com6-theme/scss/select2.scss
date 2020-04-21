@@ -1,0 +1,28 @@
+// Select2 plugin
+.select2 {
+  .selection {
+    .select2-selection {
+      height: auto;
+      padding: $spacer * .5;
+      background: transparent;
+      border: solid 1px #eee;
+      border-radius: 0;
+
+      .select2-selection__arrow {
+        display: none;
+      }
+    }
+  }
+}
+
+.select2-dropdown {
+  .select2-results {
+    .select2-results__option {
+      &--highlighted[aria-selected],
+      &[aria-selected=true] {
+        color: white;
+        background-color: $secondary;
+      }
+    }
+  }
+}

@@ -1,15 +1,29 @@
 .post-type-archive-site {
-    // Formulaire de recherche
+  // Formulaire de recherche
+  .search {
+    width: 100%;
+    box-shadow: $box-shadow;
+
+    label, input {
+      width: 100%
+    }
+
     input {
       padding: $spacer * .5;
       font-size: 16px;
       line-height: 1.2;
-      border: solid 1px #c5c5c5;
+      background: transparent;
+      border: solid 1px #eee;
+    }
+
+    h4 {
+      padding: $spacer * .5;
+      color: white;
+      background: $secondary;
     }
 
     // Liste des typographies
     ul {
-      display: flex;
       padding: 0;
 
       li {
@@ -17,61 +31,161 @@
           display: block;
         }
 
+        // &.sf-field-search {
+        //   label, input {
+        //     width: 100%
+        //   }
+        // }
+
         &.sf-field-taxonomy-typologie {
           position: relative;
-          flex-grow: 1;
-          margin-left: $spacer;
-          cursor: pointer;
-
-          h4 {
-            padding: $spacer * .5;
-            color: white;
-            background: $secondary;
-            border: solid 1px $secondary;
-          }
 
           ul {
-            position: absolute;
-            display: none;
-            width: 100%;
             margin: 0;
-            padding: $spacer;
-            background: white;
-            border: solid 1px #eee;
-            z-index: 999;
-          }
 
-          &:hover {
-            ul {
+            li {
+              background-color: #fff;
               display: block;
+              padding: 0;
+              margin: 2px 0;
+              position: relative;
+          
+              label {
+                padding: 12px 10px 12px 45px;
+                width: 100%;
+                display: block;
+                text-align: left;
+                color: #3C454C;
+                cursor: pointer;
+                position: relative;
+                z-index: 2;
+                transition: color 200ms ease-in;
+                overflow: hidden;
+          
+                &:before {
+                  width: 24px;
+                  height: 24px;
+                  content: '';
+                  border: 2px solid #D1D7DC;
+                  background-color: #fff;
+                  background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+                  background-repeat: no-repeat;
+                  background-position: -1px -2px;
+                  border-radius: 50%;
+                  z-index: 2;
+                  position: absolute;
+                  left: 10px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  cursor: pointer;
+                  transition: all 200ms ease-in;
+                }
+          
+                &:after {
+                  width: 10px;
+                  height: 10px;
+                  border-radius: 50%;
+                  content: '';
+                  background-color: $secondary;
+                  position: absolute;
+                  left: 50%;
+                  top: 50%;
+                  transform: translate(-50%, -50%) scale3d(1, 1, 1);
+                  transition: all 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+                  opacity: 0;
+                  z-index: -1;
+                }
+              }
+          
+              input:checked ~ label {
+                color: #fff;
+          
+                &:before {
+                  background-color: $primary;
+                }
+          
+                &:after {
+                  transform: translate(-50%, -50%) scale3d(56, 56, 1);
+                  opacity: 1;
+                  
+                }
+              }
+          
+              input {
+                width: 32px;
+                height: 32px;
+                order: 1;
+                z-index: 2;
+                position: absolute;
+                right: 30px;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+                visibility: hidden;
+              }
             }
           }
         }
       }
     }
+  }
 
-    #carteInteractive {
+  // Phrase de résultat de recherche
+  .results-title {
+    margin-bottom: $spacer * .8;
+    color: white;
+    font-size: $spacer * 1.4;
+    background: $secondary;
+    box-shadow: $box-shadow;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // Overlay affiché lors des requêtes AJAX
+  .overlay {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background: #ffffffcc;
+    z-index: 999;
+
+    .progress {
+      height: $spacer * .3;
       width: 100%;
-      height: 800px;
-  
-      @include media-breakpoint-down(sm) {
-        height: 300px;
+
+      .progress-bar {
+        width: 100%;
       }
     }
-  
+  }
+
+  #carteInteractive {
+    width: 100%;
+    height: 800px;
+    background: transparent;
+
+    @include media-breakpoint-down(sm) {
+      height: 300px;
+    }
+
     .leaflet-container {
       background: transparent;
     }
-
+  
     // Zoom control
     .leaflet-left .leaflet-control {
       margin-left: 0;
     }
-
+  
     .leaflet-top .leaflet-control {
-      margin-top: 0;
+      margin-top: $spacer * 1.2;
     }
-
+  
     .leaflet-interactive {
       cursor: auto;
     }
@@ -83,13 +197,19 @@
       fill: white;
       fill-opacity: 1;
     }
-
+  
     // Zones EPF
     .leaflet-interactive.zone {
       stroke: #106f75;
       stroke-width: 1;
       fill: #1bbbc5;
       fill-opacity: .2;
+      transition: all 0.3s;
+  
+      &:hover {
+        fill-opacity: .5;
+        transition: all 0.3s;
+      }
     }
   
     // Préfectures
@@ -111,34 +231,55 @@
     .leaflet-interactive.leaflet-marker-icon {
       cursor: pointer;
     }
+  }
 
-    // Modal
+  // Modal
+  .modal {
     .modal-content {
       border: none;
-
-      .container-fluid {
-        padding: 0;
-      }
-
-      .typology, .type {
-        font-weight: bold;
-      }
-
-      .thumbnail-container {
-        padding-left: $spacer;
-      }
     }
-
+  
     .modal-header {
       align-items: center;
       color: #fff;
       font-weight: bold;
       border: none;
-      background: linear-gradient(180deg, #5eb9c5, #4c9abf) no-repeat border-box;
-
+      background: linear-gradient(180deg, #{$secondary}b3, $secondary) no-repeat border-box;
+  
       p {
         margin: 0; 
       }
     }
+  
+    .modal-body {
+      padding: 0;
+
+      .image-container {
+        width: 100%;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+      }
+  
+      .description {
+        color: white;
+        background: $primary;
+        font-size: $spacer * 1.2;
+      }
+  
+      table {
+        margin: 0;
+  
+        tr:last-child {
+          border-bottom: none;
+        }
+  
+        td:first-child {
+          color: $secondary;
+        }
+      }
+    }
   }
+}
   

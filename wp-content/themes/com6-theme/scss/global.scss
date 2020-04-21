@@ -24,18 +24,18 @@ h3 {
 
 article {
   ul:not(.blocks-gallery-grid) {
-    padding: 0;
+    padding: 0 0 0 $spacer;
     list-style-type: none;
 
     li {
+      margin: $spacer * .6 0;
+
       &::before {
         display: inline-block;
-        width: $spacer * 0.5;
-        height: $spacer * 0.5;
-        margin-bottom: $spacer * 0.1;
-        margin-right: $spacer * 0.5;
-        background: $primary;
-        content: "";
+        width: $spacer;
+        margin-left: $spacer * -1;
+        color: $primary;
+        content: "\25A0"; // Unicode pour un carré
       }
 
       ul {
@@ -43,8 +43,7 @@ article {
 
         li {
           &:before {
-            width: $spacer * 0.3;
-            height: $spacer * 0.3;
+            margin-left: $spacer * -0.3;
           }
         }
       }
