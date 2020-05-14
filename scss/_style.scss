@@ -11,7 +11,7 @@ $box-shadow: 0.4rem 0.4rem 0.5rem rgba(#000, .3) !default;
 $box-shadow-inverse: -0.4rem 0.4rem 0.5rem rgba(#000, .3) !default;
 
 // Bootstrap
-@import "../../../../node_modules/bootstrap/scss/bootstrap";
+@import "./node_modules/bootstrap/scss/bootstrap";
 
 // Theme
 @import "./_theme.scss";

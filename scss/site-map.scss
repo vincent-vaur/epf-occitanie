@@ -31,12 +31,6 @@
           display: block;
         }
 
-        // &.sf-field-search {
-        //   label, input {
-        //     width: 100%
-        //   }
-        // }
-
         &.sf-field-taxonomy-typologie {
           position: relative;
 
@@ -229,6 +223,8 @@
   
     // Markers
     .leaflet-interactive.leaflet-marker-icon {
+      color: $primary;
+      background-color: white;
       cursor: pointer;
     }
   }
