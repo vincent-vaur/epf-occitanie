@@ -63,7 +63,7 @@ figcaption {
   padding: $spacer * 0.5 $spacer;
 }
 
-@mixin block-button($direction: left) {
+@mixin block-button-icon($direction: left) {
   content: "";
   display: block;
   background: url(assets/bordered-button.png) no-repeat;
@@ -76,18 +76,8 @@ figcaption {
   }
 }
 
-.wp-block-file {
-  display: flex;
-  margin: $spacer 0;
-  align-items: center;
-
-  a:first-child {
-    flex-grow: 1;
-  }
-}
-
-.wp-block-button {
-  display: flex;
+@mixin block-button() {
+  display: flex !important;
   align-items: center;
   transition: all 0.3s;
 
@@ -96,11 +86,11 @@ figcaption {
   }
 
   &:before {
-    @include block-button();
+    @include block-button-icon();
   }
 
   &:after {
-    @include block-button(right);
+    @include block-button-icon(right);
   }
 
   &:hover {
@@ -113,6 +103,28 @@ figcaption {
     font-size: $spacer * 0.8 !important;
     padding: $spacer * 0.5 $spacer;
     background: white !important;
+  }
+}
+
+.wp-block-buttons {
+  &.aligncenter {
+    .wp-block-button {
+      justify-content: center;
+    }
+  }
+}
+
+.wp-block-button {
+  @include block-button();
+}
+
+.wp-block-file {
+  display: flex;
+  margin: $spacer 0;
+  align-items: center;
+
+  a:first-child {
+    flex-grow: 1;
   }
 }
 
