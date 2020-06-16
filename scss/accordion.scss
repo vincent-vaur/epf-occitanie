@@ -5,7 +5,12 @@
   .c-accordion__title {
     margin: 0;
     padding: $spacer;
+    padding-right: $spacer * 4;
     color: $ternary;
+
+    @include media-breakpoint-down(md) {
+      font-size: $spacer * 1.4;
+    }
 
     &:after {
       $icon-size: $spacer * 2;
